@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Portfolio Portal</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="header">Jeff Natiuk Nanodegree Apps</string>
+    <string name="btnText_spotify">Spotify Streamer</string>
+    <string name="btnText_scores">Scores App</string>
+    <string name="btnText_library">Library App</string>
+    <string name="btnText_BIB">Build It Bigger!</string>
+    <string name="btnText_reader">XYZ Reader</string>
+    <string name="btnText_capstone">Capstone: My Own App</string>
+</resources>
