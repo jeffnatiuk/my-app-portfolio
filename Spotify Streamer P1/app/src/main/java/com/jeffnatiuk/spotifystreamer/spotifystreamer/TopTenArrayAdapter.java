@@ -26,19 +26,21 @@ public class TopTenArrayAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         Track track = (Track) getItem(position);
-        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_top10, parent, false);
+        if(convertView == null){
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_top10, parent, false);
+        }
 
-        ImageView albumImage = (ImageView) rootView.findViewById(R.id.list_item_album_image);
+        ImageView albumImage = (ImageView) convertView.findViewById(R.id.list_item_album_image);
         if(track.album.images.size() != 0) {
             Picasso.with(getContext()).load(track.album.images.get(0).url).into(albumImage);
         }
 
-        TextView songName = (TextView) rootView.findViewById(R.id.list_item_song_name);
+        TextView songName = (TextView) convertView.findViewById(R.id.list_item_song_name);
         songName.setText(track.name);
 
-        TextView albumName = (TextView) rootView.findViewById(R.id.list_item_album_name);
+        TextView albumName = (TextView) convertView.findViewById(R.id.list_item_album_name);
         albumName.setText(track.album.name);
 
-        return rootView;
+        return convertView;
     }
 }

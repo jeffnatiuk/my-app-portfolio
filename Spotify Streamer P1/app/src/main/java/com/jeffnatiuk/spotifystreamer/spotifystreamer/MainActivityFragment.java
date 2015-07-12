@@ -115,7 +115,12 @@ public class MainActivityFragment extends Fragment {
             catch(Exception e){
                 Log.e(LOG_TAG, "Retrofit error");
             }
-            return results.artists.items;
+            if(results != null) {
+                return results.artists.items;
+            }
+            else{
+                return null;
+            }
         }
 
         @Override

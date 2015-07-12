@@ -96,7 +96,6 @@ public class TopSongsActivityFragment extends Fragment {
             catch(Exception e){
                 Log.e(LOG_TAG, "Retrofit error.");
             }
-            List t = results.tracks;
             return results;
         }
 
