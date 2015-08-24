@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.jeffnatiuk.spotifystreamer.spotifystreamer.SongPlayerFragment">
+
+    <TextView android:text="@string/artistName" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lbl_artistName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/albumName"
+        android:id="@+id/lbl_albumName"
+        android:layout_below="@+id/lbl_artistName"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_album_art"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="true"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/lbl_albumName"
+        android:layout_above="@+id/seek_song_position" />
+
+    <ImageButton
+        android:layout_width="@dimen/btn_media_size"
+        android:layout_height="@dimen/btn_media_size"
+        android:id="@+id/btn_media_previous"
+        android:src="@android:drawable/ic_media_previous"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/lbl_albumName"
+        android:layout_toStartOf="@+id/lbl_albumName"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <ImageButton
+        android:layout_width="@dimen/btn_media_size"
+        android:layout_height="@dimen/btn_media_size"
+        android:id="@+id/btn_media_play_pause"
+        android:src="@android:drawable/ic_media_play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="@dimen/btn_media_size"
+        android:layout_height="@dimen/btn_media_size"
+        android:id="@+id/btn_media_next"
+        android:src="@android:drawable/ic_media_next"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/lbl_albumName"
+        android:layout_toEndOf="@+id/lbl_albumName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song Position"
+        android:id="@+id/txt_song_position"
+        android:layout_above="@+id/btn_media_previous"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song End"
+        android:id="@+id/txt_song_end"
+        android:layout_above="@+id/btn_media_next"
+        android:layout_alignRight="@+id/img_album_art"
+        android:layout_alignEnd="@+id/img_album_art" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seek_song_position"
+        android:layout_above="@+id/txt_song_end"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
