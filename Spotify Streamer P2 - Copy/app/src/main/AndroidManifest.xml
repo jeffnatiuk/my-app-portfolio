@@ -3,6 +3,7 @@
     package="com.jeffnatiuk.spotifystreamer.spotifystreamer" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.wake_lock" />
 
     <application
         android:allowBackup="true"
@@ -28,12 +29,15 @@
         </activity>
         <activity
             android:name=".SongPlayer"
-            android:label="@string/title_activity_song_player"
-            android:parentActivityName=".TopSongsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jeffnatiuk.spotifystreamer.spotifystreamer.TopSongsActivity" />
+            android:label="@string/title_activity_song_player">
         </activity>
+
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
     </application>
 
 </manifest>

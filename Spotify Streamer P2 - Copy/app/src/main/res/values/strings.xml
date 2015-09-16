@@ -11,9 +11,20 @@
     <string name="title_activity_top_songs">Top 10 Tracks</string>
     <string name="intent_extra_ArtistId">artistId</string>
     <string name="intent_extra_ArtistName">artistName</string>
-    <string name="title_activity_song_player">SongPlayer</string>
+    <string name="title_activity_song_player">Spotify Streamer</string>
     <string name="artistName">Artist Name</string>
     <string name="albumName">Album Name</string>
     <string name="intent_extra_TopTenTracks">topTenTracks</string>
+    <string name="intent_extra_selected_track">selectedTrack</string>
+    <string name="intent_extra_selected_track_name">selectedTrackName</string>
+    <string name="song_title">Song Title</string>
+    <string name="action_start_service">START_SVC</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_tablet">TabletActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_song_service">SongService</string>
+    <string name="intent_extra_is_two_pane">isTwoPane</string>
 
 </resources>

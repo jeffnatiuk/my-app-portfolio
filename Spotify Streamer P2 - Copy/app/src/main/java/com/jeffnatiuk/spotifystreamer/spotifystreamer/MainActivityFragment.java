@@ -2,6 +2,7 @@ package com.jeffnatiuk.spotifystreamer.spotifystreamer;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,21 +79,24 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListView lv = (ListView)parent;
                 Artist selectedArtist = (Artist)lv.getItemAtPosition(position);
-                Intent intent = new Intent(getActivity(), TopSongsActivity.class);
-                intent.putExtra(
-                        getResources().getString((R.string.intent_extra_ArtistId)),
-                        selectedArtist.id
-                );
-                intent.putExtra(
-                        getResources().getString((R.string.intent_extra_ArtistName))
-                , selectedArtist.name);
-                startActivity(intent);
+                String artistID = selectedArtist.id;
+                String artistName = selectedArtist.name;
+
+                ((Callback) getActivity())
+                        .onItemSelected(selectedArtist);
             }
         });
 
         mProgress = (ProgressBar)rootView.findViewById(R.id.progress_load_artists);
 
         return rootView;
+    }
+
+    public interface Callback {
+        /**
+         * DetailFragmentCallback for when an item has been selected.
+         */
+        public void onItemSelected(Artist selectedArtist);
     }
 
     public class FetchArtistsTask extends AsyncTask<String, Void, List<Artist>> {
@@ -111,14 +116,13 @@ public class MainActivityFragment extends Fragment {
                 SpotifyApi api = new SpotifyApi();
                 SpotifyService spotify = api.getService();
                 results = spotify.searchArtists(artistQuery);
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 Log.e(LOG_TAG, "Retrofit error");
             }
-            if(results != null) {
+            if (results != null && results.artists.items.size() > 0) {
                 return results.artists.items;
             }
-            else{
+            else {
                 return null;
             }
         }
@@ -132,8 +136,16 @@ public class MainActivityFragment extends Fragment {
                     mAdapter.add(a);
                     mArtists.add(a);
                 }
+                if(artists.size() == 0)
+                {
+                    Toast.makeText(getActivity(), "No artists found.  Please refine search.", Toast.LENGTH_SHORT).show();
+                }
+                mProgress.setVisibility(View.INVISIBLE);
             }
-            mProgress.setVisibility(View.INVISIBLE);
+            else
+            {
+                Toast.makeText(getActivity(), "No internet connection.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

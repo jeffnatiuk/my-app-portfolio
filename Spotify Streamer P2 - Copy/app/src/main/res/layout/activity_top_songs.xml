@@ -1,5 +1,7 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment_top_songs_container"
     android:name="com.jeffnatiuk.spotifystreamer.spotifystreamer.TopSongsActivityFragment"
-    tools:layout="@layout/fragment_top_songs" android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    />

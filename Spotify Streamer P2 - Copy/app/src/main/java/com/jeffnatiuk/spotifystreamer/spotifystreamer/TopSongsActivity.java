@@ -12,12 +12,25 @@ public class TopSongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_songs);
+
+        if(savedInstanceState == null){
+
+            Bundle args = new Bundle();
+            args.putParcelable("selectedArtist", getIntent().getData());
+
+            TopSongsActivityFragment fragment = new TopSongsActivityFragment();
+            fragment.setArguments(args);
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_top_songs_container, new TopSongsActivityFragment())
+                    .commit();
+        }
+
         Intent intent = getIntent();
 
         getSupportActionBar().setSubtitle(intent.getStringExtra(
                 getResources().getString((R.string.intent_extra_ArtistName))
         ));
-
     }
 
 

@@ -24,13 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/img_album_art"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true"
         android:foregroundGravity="center_vertical|center_horizontal"
         android:layout_below="@+id/lbl_albumName"
-        android:layout_above="@+id/seek_song_position" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/seek_song_position"
+        android:layout_alignEnd="@+id/seek_song_position"
+        android:layout_above="@+id/txt_song_title" />
 
     <ImageButton
         android:layout_width="@dimen/btn_media_size"
@@ -38,10 +38,9 @@
         android:id="@+id/btn_media_previous"
         android:src="@android:drawable/ic_media_previous"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/lbl_albumName"
-        android:layout_toStartOf="@+id/lbl_albumName"
-        android:layout_marginRight="32dp"
-        android:layout_marginEnd="32dp" />
+        android:layout_toLeftOf="@+id/btn_media_play_pause"
+        android:layout_toStartOf="@+id/btn_media_play_pause"
+        android:layout_marginRight="50px" />
 
     <ImageButton
         android:layout_width="@dimen/btn_media_size"
@@ -56,16 +55,14 @@
         android:layout_height="@dimen/btn_media_size"
         android:id="@+id/btn_media_next"
         android:src="@android:drawable/ic_media_next"
-        android:layout_marginLeft="35dp"
-        android:layout_marginStart="35dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/lbl_albumName"
-        android:layout_toEndOf="@+id/lbl_albumName" />
+        android:layout_toRightOf="@+id/btn_media_play_pause"
+        android:layout_toEndOf="@+id/btn_media_play_pause"
+        android:layout_marginLeft="50px" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Song Position"
         android:id="@+id/txt_song_position"
         android:layout_above="@+id/btn_media_previous"
         android:layout_alignParentLeft="true"
@@ -74,7 +71,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Song End"
         android:id="@+id/txt_song_end"
         android:layout_above="@+id/btn_media_next"
         android:layout_alignRight="@+id/img_album_art"
@@ -85,6 +81,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/seek_song_position"
         android:layout_above="@+id/txt_song_end"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_title"
+        android:id="@+id/txt_song_title"
+        android:layout_above="@+id/seek_song_position"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
